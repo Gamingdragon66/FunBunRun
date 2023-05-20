@@ -1,16 +1,143 @@
 <!DOCTYPE html>
-<html lang="en" onclick="jump()">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Flappy Bird</title>
-    <link rel="stylesheet" href="style.css">
+  <style>
+    /* Adjust the gallery container size and style as needed */
+    .gallery-container {
+      width: 800px;
+      height: 600px;
+      margin: 0 auto; /* Center the gallery */
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Adjust the slide size and transition as needed */
+    .gallery-slide {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transition: transform 0.5s;
+      transform: translateX(-100%);
+    }
+
+    /* Adjust the image size as needed */
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+    }
+    .gallery-slide.active {
+      transform: translateX(0);
+    }
+
+    #header1 {
+      text-align: center;
+      color: rgb(0, 0, 0); /* Add text color */
+      padding: 10px; /* Add padding for better visibility */
+      font-family: Impact;
+    }
+
+    /* Options bar styles */
+    #options-bar {
+      width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 10px;
+    }
+
+    #options-bar a {
+      display: inline-block;
+      margin: 0 10px;
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+    }
+    
+    /* Box styles */
+    .box-container {
+      display: flex;
+      justify-content: center; /* Center the boxes horizontally */
+      align-items: flex-start; /* Align the boxes to the top */
+      margin-top: 20px;
+      border-top: 1px solid black;
+      padding-top: 20px;
+    }
+
+    .box {
+      flex: 1; /* Distribute available space equally among the boxes */
+      text-align: center;
+      border: 1px solid black; /* Add border */
+      border-radius: 0%; /* Make it circular */
+      padding: 15px; /* Add padding for spacing */
+      margin: 0 10px; /* Add margin on the right and left sides */
+      width: 200px; /* Adjust the width of the box */
+    }
+
+    .box-text {
+      font-weight: bold;
+      margin-bottom: 10px;
+      margin-left: 20px;
+      margin-right: 20px;
+      font-family: "Arial", sans-serif; /* Change the font family */
+      font-size: 18px; /* Adjust the font size */
+    }
+
+    .box-image {
+      width: 60%;
+      border: 1px solid black; /* Add border */
+      border-radius: 3%; /* Make it circular */
+    }
+  </style>
 </head>
 <body>
-    <div id="game">
-        <div id="block"></div>
-        <div id="hole"></div>
-        <div id="character"></div>
+  <h1 id="header1">
+    Icy Gaming Mouse Pads
+  </h1>
+  <div id="options-bar">
+    <a href="https://www.etsy.com/uk/shop/icemousepads?ref=l2-about-shopname">Etsy Shop</a>
+    <a href="https://www.youtube.com/channel/UCFBBny0T55-s5b4M6WDpIJA">YouTube Channel</a>
+    <a href="#">Explore</a>
+  </div>
+  <div class="gallery-container">
+    <div class="gallery-slide">
+      <img src="https://m.media-amazon.com/images/I/71u0El7nKKL._AC_SL1500_.jpg" alt="Image 1">
     </div>
+    <div class="gallery-slide">
+      <img src="https://m.media-amazon.com/images/I/71p10w2zwhL._AC_SL1500_.jpg" alt="Image 2">
+    </div>
+    <div class="gallery-slide">
+      <img src="https://m.media-amazon.com/images/I/81HNSHQgB0L._AC_SL1500_.jpg" alt="Image 3">
+    </div>
+  </div>
+
+  <div class="box-container">
+    <div class="box">
+      <div class="box-text">Non-slip surface</div>
+      <img class="box-image" src="file:///C:/Users/Mdneu/AppData/Local/Temp/Temp1_archive%20(1).zip/gaming-mouse-pad-white-36x18-front-6468fd6a68db1.png" alt="Box 1 Image">
+    </div>
+    <div class="box">
+      <div class="box-text">Vibrant prints, long lasting</div>
+      <img class="box-image" src="file:///C:/Users/Mdneu/AppData/Local/Temp/Temp1_archive%20(1).zip/gaming-mouse-pad-white-36x18-front-6468fd6a68c7a.png" alt="Box 2 Image">
+    </div>
+    <div class="box">
+      <div class="box-text">Rubber non-slip base</div>
+      <img class="box-image" src="file:///C:/Users/Mdneu/AppData/Local/Temp/Temp1_archive.zip/gaming-mouse-pad-white-36x18-product-details-6468fcdbf0a86.png" alt="Box 3 Image">
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var slides = document.querySelectorAll('.gallery-slide');
+      var currentSlide = 0;
+      var slideInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
+
+      function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }
+
+      // Add the 'active' class to the initial slide
+      slides[currentSlide].classList.add('active');
+    })();
+  </script>
 </body>
-<script src="script.js"></script>
 </html>
